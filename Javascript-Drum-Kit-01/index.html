@@ -64,16 +64,15 @@
 
 <script>
   window.addEventListener('keydown', function(ky) {
-    const audio = document.querySelector(`audio[data-key="${ky.keyCode}"]`)
     const key = document.querySelector(`.key[data-key="${ky.keyCode}"]`)
-    console.log(key);
+    key.classList.toggle('playing')
+    const audio = document.querySelector(`audio[data-key="${ky.keyCode}"]`)
     //play
     audio.play();
     // if does not exist end loop
     if(!audio){
       return;
     }
-    key.classList.add('playing')
     // reset current time to 0 to play the sound again 
     audio.currentTime = 0;
   }) 
